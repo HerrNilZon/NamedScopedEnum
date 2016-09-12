@@ -26,7 +26,6 @@
 #include <iostream>
 #include <regex> // uses gcc compiler >= 4.9
 
-
 namespace detail {
 
 typedef std::vector<std::string> StringVector;
