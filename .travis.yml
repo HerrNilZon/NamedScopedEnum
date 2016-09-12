@@ -1,0 +1,25 @@
+language: cpp
+compiler: g++
+
+before_install:
+- sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+- sudo apt-get update -qq
+
+install:
+- sudo apt-get install -qq g++-4.9
+- export CXX="g++-4.9"
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script: make && make run_NamedScopedEnum_tests
+
+notifications:
+  email:
+    recipients:
+      - tino.bog@gmail.com
+      - nils.zander@tum.de
+    on_success: change
+    on_failure: always
