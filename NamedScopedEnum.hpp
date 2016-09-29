@@ -55,8 +55,7 @@ public:\
   enum ENUMERATORS {__VA_ARGS__};\
   \
   ENUM_NAME( ENUMERATORS default_enumerator ):\
-    _names(detail::tokenize(#__VA_ARGS__)),\
-    _name(_names[default_enumerator]),\
+    _name(names()[default_enumerator]),\
     _enumerator(default_enumerator)\
   {\
   }\
@@ -71,11 +70,6 @@ public:\
     return _name;\
   }\
   \
-  detail::StringVector names() const\
-  {\
-    return _names;\
-  }\
-  \
   ENUMERATORS enumerator() const\
   {\
     return _enumerator;\
@@ -84,7 +78,7 @@ public:\
   void set_enumerator( ENUMERATORS enumerator)\
   {\
     _enumerator = enumerator;\
-    _name = _names[enumerator];\
+    _name = names()[enumerator];\
   }\
   \
   operator ENUMERATORS() const\
@@ -97,9 +91,12 @@ public:\
     return _name;\
   }\
   \
-private:\
-  detail::StringVector _names;\
+  static detail::StringVector names()\
+  {\
+    return detail::tokenize(#__VA_ARGS__);\
+  }\
   \
+private:\
   std::string _name;\
   ENUMERATORS _enumerator;\
 }
