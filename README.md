@@ -5,13 +5,21 @@ Scoped C++ enumeration with string descriptors
 [![Version](https://img.shields.io/badge/c%2B%2B-11-blue.svg)](http://en.cppreference.com/w/cpp)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://en.wikipedia.org/wiki/MIT_License)
 
---
+## Features
 
-# Usage
+This library provides the `NAMED_SCOPED_ENUM` macro, which creates strongly typed (scoped) enumeration with the following features:
+* Similar behaviour to C++11 strongly typed (scoped) C++11 enumeration
+* Representation of current enumerator as std::string via member functions `std::string operator` and `name()`
+* List of enumerator names via __static__ member function `names()`
+* Size of enumeration, i.e. number of enumerators, via constexpr member function `size()`
 
-An enumeration created using the `NAMED_SCOPED_ENUM` macro behaves like strongly typed (scoped) C++11 enumeration.
-Additionally the size of the enumeration is available at compile time, and the `std::string` representation of the
-current enumeration value as well as a vector of `std::string`s of all names can be retrieved by special member functions.  
+## Usage
+
+An enumeration created using the `NAMED_SCOPED_ENUM` macro behaves just like a strongly typed (scoped) C++11 enumeration.
+Additionally, the size of the enumeration is available at compile time. Furthermore, the `std::string` representation of the
+current enumeration value as well as a vector of all names can be retrieved by special member functions.  
+
+### An example
 
 ```cpp
 #include "NamedScopedEnum.hpp"
@@ -66,6 +74,7 @@ int main( int argc,
 }
 ```
 
+Ouput:
 ```
 Initialized signal with: RED
 Set signal to: YELLOW
@@ -74,10 +83,10 @@ current_color: GREEN
 Available colors are: GREEN YELLOW RED
 ```
 
-## Create a static map using a std::array
+### Create a static map using a std::array
 
-To create a map with a fixed number of keys and __real__ contant time look up (no hard feelings `std::map`)
-just combine `std::array` with a `NamedScopedEnum`. 
+To create a map with a fixed number of named keys and contant time look up
+just combine a `std::array` with a `NamedScopedEnum`. 
 
 ```cpp
 #include "NamedScopedEnum.hpp"
@@ -105,7 +114,7 @@ int main( int argc,
   } // end of i -loop
 }
 ```
-
+Output:
 ```
 How much fruit is in the basket?
 APPLE : 4
