@@ -8,7 +8,7 @@ Scoped C++ enumeration with string descriptors
 ## Features
 
 This library provides the `NAMED_SCOPED_ENUM` macro, which creates strongly typed (scoped) enumeration with the following features:
-* Similar behaviour to C++11 strongly typed (scoped) C++11 enumeration
+* Similar behaviour to C++11's strongly typed (scoped) enumeration
 * Representation of current enumerator as std::string via member functions `std::string operator` and `name()`
 * List of enumerator names via __static__ member function `names()`
 * Size of enumeration, i.e. number of enumerators, via constexpr member function `size()`
