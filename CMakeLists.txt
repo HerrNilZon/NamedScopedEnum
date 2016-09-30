@@ -40,6 +40,12 @@ SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11" )
 INCLUDE_DIRECTORIES ( . )	
 
 #------------------------------------------------------------------------------
+# CREATE EXAMPLES
+#------------------------------------------------------------------------------
+ADD_EXECUTABLE ( static_map example/static_map.cpp )
+ADD_EXECUTABLE ( basic_usage example/basic_usage.cpp )
+
+#------------------------------------------------------------------------------
 # CREATE TARGETS THAT BUILD AND START THE TEST RUNNER
 #------------------------------------------------------------------------------
 
