@@ -25,7 +25,7 @@
 
 TEST_CASE( "Test conversion to names" )
 {
-  NAMED_SCOPED_ENUM(Color, red, green, blue );
+  NAMED_SCOPED_ENUM( Color, red, green, blue );
   
   Color color = Color::red;
   
@@ -35,7 +35,7 @@ TEST_CASE( "Test conversion to names" )
 
 TEST_CASE( "Test set function" )
 {
-  NAMED_SCOPED_ENUM(Color, red, green, blue );
+  NAMED_SCOPED_ENUM( Color, red, green, blue );
   
   Color color = Color::red;
   
@@ -47,7 +47,7 @@ TEST_CASE( "Test set function" )
 
 TEST_CASE( "Test size function" )
 {
-  NAMED_SCOPED_ENUM(Color, red, green, blue );
+  NAMED_SCOPED_ENUM( Color, red, green, blue );
   
   CHECK( Color::size() == 3 );
   
