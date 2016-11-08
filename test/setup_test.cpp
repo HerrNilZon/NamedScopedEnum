@@ -23,15 +23,26 @@
 #include <NamedScopedEnum.hpp>
 #include <test/catch.hpp>
 
-TEST_CASE( "Test conversion to names" )
+TEST_CASE( "Test list of names" )
 {
   NAMED_SCOPED_ENUM( Color, red, green, blue );
   
-  Color color = Color::red;
-  
-  CHECK( color.name() == "red" );
-  
+  CHECK( Color::names()[0] == "red" );
+  CHECK( Color::names()[1] == "green" );
+  CHECK( Color::names()[2] == "blue" );
+ 
 }
+
+TEST_CASE( "Test conversion to names" )
+{
+  NAMED_SCOPED_ENUM(Color, red, green, blue );
+
+  Color color = Color::red;
+
+  CHECK( color.name() == "red" );
+
+}
+
 
 TEST_CASE( "Test set function" )
 {
